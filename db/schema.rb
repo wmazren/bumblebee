@@ -29,10 +29,20 @@ ActiveRecord::Schema.define(:version => 20120809090231) do
   add_index "appointments", ["physician_id"], :name => "index_appointments_on_physician_id"
 
   create_table "organizations", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "name",       :default => "", :null => false
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "postcode"
+    t.string   "state"
+    t.string   "country"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
+
+  add_index "organizations", ["name"], :name => "index_organizations_on_name", :unique => true
 
   create_table "patients", :force => true do |t|
     t.string   "first_name"

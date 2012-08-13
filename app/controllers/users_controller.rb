@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "User created"
-      redirect_to root_path
+      redirect_to dashboards_path
     else
       render 'new'
     end

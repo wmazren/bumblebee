@@ -7,7 +7,7 @@ gem 'rails', '3.2.8'
 
 gem 'mysql2'
 gem 'simple_form'
-# gem 'country_select'
+gem 'country_select'
 gem 'devise'
 gem 'cancan'
 # gem "paper_trail"

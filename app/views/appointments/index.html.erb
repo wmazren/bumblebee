@@ -1,34 +1,25 @@
-<div class="widget widget-table action-table">
-  <div class="widget-header">
-    <i class="icon-th-list"></i>
-    <h3>All Appointments</h3>
-  </div> <!-- /widget-header -->
-    
-  <div class="widget-content">
-    <table class="table table-striped table-bordered table-condensed">
-      <thead>
-        <tr>
-          <th>Patient First Name</th>
-          <th>Patient Last Name</th>
-          <th>Physician</th>
-          <th>Appointment Date</th>
-          <th class="td-actions">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @appointments.each do |appointment| %>
-          <tr>
-            <td><%= appointment.patient.first_name %></td>
-            <td><%= appointment.patient.last_name %></td>
-            <td><%= appointment.physician.first_name %></td>
-            <td><%= appointment.appointment_date.to_s(:datetime).humanize %></td>
-            <td class="td-actions">
-              <%= link_to "Edit", edit_appointment_path(appointment), :class => 'btn btn-mini' %>
-              <%= link_to 'Destroy', appointment, :data => { :confirm => 'Are you sure?' }, method: :delete, :class => 'btn btn-mini btn-danger' %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div> <!-- /widget-content -->
-</div> <!-- /widget --> 
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="appointments">
+  <thead>
+    <tr>
+      <th>Patient First Name</th>
+      <th>Patient Last Name</th>
+      <th>Physician</th>
+      <th>Appointment Date</th>
+      <th class="td-actions">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <td><%= appointment.patient.first_name %></td>
+        <td><%= appointment.patient.last_name %></td>
+        <td><%= appointment.physician.first_name %></td>
+        <td><%= appointment.appointment_date.to_s(:datetime).humanize %></td>
+        <td class="td-actions">
+          <%= link_to "Edit", edit_appointment_path(appointment), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', appointment, :data => { :confirm => 'Are you sure?' }, method: :delete, :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
